@@ -1,0 +1,14 @@
+
+.orderListItems{
+    margin-top: 0.5rem;
+}
+
+.tableOrderButtons{
+    color: #dfdfdf;
+}
+
+.tableOrderButtons:hover{
+    color: black;
+    background-color: #dfdfdf;
+    transform: scale(1.1);
+}
