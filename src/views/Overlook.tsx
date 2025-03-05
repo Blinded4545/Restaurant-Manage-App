@@ -1,6 +1,6 @@
 
-import { useState } from "react"
-import { Container, Box, Text, Heading, SimpleGrid, Button, Flex } from "@chakra-ui/react"
+import { ReactNode, useState } from "react"
+import { Container, Box, Text, Heading, Button, Flex, SimpleGrid, Grid } from "@chakra-ui/react"
 import { TableOrder } from "@/components/Parts/TableOrder"
 import { LuMoon, LuSun } from "react-icons/lu"
 import { changeHtmlColorScheme } from "@/components/Functions/ChangeTheme"
@@ -9,7 +9,8 @@ import '@/css/TableOrder.css'
 
 
 export const Overlook = () => {
-    const [tableList, setTableList] = useState<string[]>(["1", "2", "3", "4", "5", "6"])
+    const [tableList, setTableList] = useState<string[]>(["1", "2", "3", "4", "5", "6", "7", "8", "9"])
+    const [columnOption, setColumnOption] = useState<number>(3)
     const [colorModeTag, setColorModeTag] = useState<string>('')
     const [currIcon, setCurrIcon] = useState('LuMoon')
 
@@ -27,6 +28,17 @@ export const Overlook = () => {
             return
         }
         setCurrIcon('LuMoon')
+    }
+
+    const pruebaReturnResponse = (e: string, i: number, modOp: number):ReactNode=>{
+        if ((parseInt(e)%columnOption)==modOp){
+            return(
+                <Box bg={colorModeTag} borderWidth="2px" textAlign="center" rounded="10px" p="5px" height='min-content'>
+                    {e}
+                    <TableOrder key={i} tableIndex={i}></TableOrder>
+                </Box>
+            )
+        }
     }
 
     return (
@@ -54,14 +66,31 @@ export const Overlook = () => {
                     </div>
                 </Flex>
             </Box>
-            <Box marginTop={10} marginBottom={10}>
-                <SimpleGrid columns={3} gap="20px">
-                    {tableList.map((e, i)=>(
-                        <Box bg={colorModeTag} borderWidth="2px" textAlign="center" rounded="10px" p="5px" height='min-content'>
-                            {e}
-                            <TableOrder key={i} tableIndex={i}></TableOrder>
-                        </Box>
-                    ))}
+
+            <Box>
+                <SimpleGrid templateColumns={`repeat(${columnOption}, 1fr)`} gapX='2' gapY='3' mt='10px'>                  
+
+                        <Grid h='fit-content' gapY='3'>
+                            {
+                                tableList.map((e,i)=>(
+                                        pruebaReturnResponse(e,i, 1)
+                                ))
+                            }
+                        </Grid>
+                        <Grid h='fit-content' gapY='3'>
+                        {
+                                tableList.map((e,i)=>(
+                                        pruebaReturnResponse(e,i, 2)
+                                ))
+                            }
+                        </Grid>
+                        <Grid h='fit-content' gapY='3'>
+                        {
+                                tableList.map((e,i)=>(
+                                        pruebaReturnResponse(e,i, 0)
+                                ))
+                            }
+                        </Grid>
                 </SimpleGrid>
             </Box>
         </Container>

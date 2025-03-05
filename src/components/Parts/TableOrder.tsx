@@ -66,9 +66,12 @@ export const TableOrder = ({tableIndex}: Props) => {
                 price: 2
             }
         ],
+        [],
+        [],
+        [],
         []
-        
     ])
+    
     const [backupOrder, setBackupOrder] = useState<any>([])
 
 
