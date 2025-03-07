@@ -4,50 +4,89 @@ import { Box, Container, Grid, GridItem, Flex, Text } from "@chakra-ui/react"
 export const Admin = () => {
   return (
     <Container>
-      <Box h={50}>
+      <Box h='2rem' alignContent='center'>
         abc
       </Box>
-      <Grid
-       templateColumns='repeat(3, 1fr)'
-       templateRows='repeat(2, 1fr)'
-       gapX='4'
-       gapY='2'
-       h='500px'
-       pt={10}
-      >
-        <GridItem rowSpan={2} colSpan={1} bg='red.100' rounded={3}>
-          <Grid h='full' w='max' direction='column' justifyContent='space-evenly' alignItems='center'>
-            <Grid templateColumns='repeat(2, 1fr)' alignItems='space-evenly'>
-              <div>Chart 1</div>
-              <div>Chart 2</div>
+      <Box p='3'>
+        <Grid
+        templateColumns='repeat(3, 1fr)'
+        templateRows='repeat(1, 1fr)'
+        gapX='4'
+        gapY='2'
+        minHeight='full'
+        >
+          <GridItem rowSpan={2} colSpan={1} bg='red.100' rounded='5px'>
+            <Grid h='full' w='full' direction='column' justifyContent='space-evenly' alignItems='center'>
+              <Grid templateColumns='repeat(2, 1fr)' alignItems='space-evenly'>
+                <div>Chart 1</div>
+                <div>Chart 2</div>
+              </Grid>
+              <div>Monthly Income</div>
+              <div>Daily Avg Income</div>
+              <div>Monthly Salaries</div>
             </Grid>
-            <div>Monthly Income</div>
-            <div>Daily Avg Income</div>
-            <div>Monthly Salaries</div>
-          </Grid>
-        </GridItem>
-        <GridItem rowSpan={1} colSpan={2} bg='blue.100' rounded={3}>
-          <Grid templateColumns='repeat(1, 1fr)' templateRows='repeat(3, 1fr)' m='5' gapY='3'>
-            <GridItem rowSpan={1}>
-              <Text>Menu</Text>
-            </GridItem>
-            <GridItem rowSpan={3}>
-              <Box h='full' bg='red' rounded='md' h='full' overflow='scroll'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium itaque eos laudantium consequatur ea vero cum, sint rem distinctio sit recusandae nesciunt enim ipsam amet dolorum reprehenderit architecto! Accusamus, labore!
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem voluptate commodi veniam doloremque at vitae exercitationem laboriosam praesentium adipisci suscipit magnam quisquam alias, sint nisi ea libero. Sed, reprehenderit omnis?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae impedit, pariatur harum expedita temporibus iste, deleniti accusantium cupiditate quas enim, culpa sunt dolorum magnam voluptatibus ad autem esse sit. Aut.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut atque, voluptatibus consequatur vitae maxime nulla perspiciatis reiciendis! Eveniet exercitationem maiores voluptatum voluptates error, officiis minus excepturi natus inventore perferendis laudantium!
-              </Box>
-            </GridItem>
-          </Grid>
-        </GridItem>
-        <GridItem rowSpan={1} colSpan={1} bg='blue.100' rounded={3}>
-          Tables
-        </GridItem>
-        <GridItem rowSpan={1} colSpan={1} bg='blue.100' rounded={3}>
-          Employees
-        </GridItem>
-      </Grid>
+          </GridItem>
+
+          <GridItem rowSpan={1} colSpan={2} h='full' rounded={3}>
+
+            {/* MENU COMP */}
+            <Flex direction='column' width='full' height='full' gap='3'>
+              <Flex width='full' bg='green.100' direction='column' p='3' rounded='5px'>
+                <Box>
+                  <Text>Menu</Text>
+                </Box>
+                <Box>
+                  <Box>
+                    <Text height='15rem' overflow='scroll'>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
+                    </Text>
+                  </Box>
+                </Box>
+              </Flex>
+
+              <Flex gap='3' width='full' h='1/2'>
+
+                {/* TABLES COMP */}
+                <Flex width='full' bg='green.100' direction='column' p='3' rounded='5px'>
+                  <Box>
+                    <Text>Tables</Text>
+                  </Box>
+                  <Box>
+                    <Box>
+                      <Text height='10rem' overflow='scroll'>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
+                      </Text>
+                    </Box>
+                  </Box>
+                </Flex>
+                
+                {/* EMPLOYEES COMP */}
+                <Flex width='full' bg='green.100' direction='column' p='3' rounded='5px'>
+                  <Box>
+                    <Text>Employees</Text>
+                  </Box>
+                  <Box>
+                    <Box>
+                      <Text height='10rem' overflow='scroll'>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
+                      </Text>
+                    </Box>
+                  </Box>
+                </Flex>
+              </Flex>
+            </Flex>
+          </GridItem>
+        </Grid>
+      </Box>
     </Container>
   )
 }
