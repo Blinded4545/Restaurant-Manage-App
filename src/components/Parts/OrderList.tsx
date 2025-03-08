@@ -6,18 +6,23 @@ import { jsPDF } from 'jspdf'
 
 type Props = {
     orderDetails: { product: string; quantity: number; price: number; }[],
+    deleteOrder: ()=>void,
     tableID: number,
 }
 
 let doc = new jsPDF()
 
-export const OrderList = ({orderDetails}: Props) => {
+export const OrderList = ({orderDetails, deleteOrder}: Props) => {
     const [currOrderDetails, setCurrOrderDetails] = useState(orderDetails)
     const [backupOrderDetails, setBackupOrderDetails] = useState<any>([])
 
     const deleteItem = (index: number)=>{
         let newOrderDetails = currOrderDetails
         newOrderDetails.splice(index, index)
+
+        if(index==0){
+            deleteOrder()
+        }
 
         setBackupOrderDetails(currOrderDetails)
         setCurrOrderDetails(newOrderDetails)

@@ -107,7 +107,7 @@ export const TableOrder = ({tableIndex}: Props) => {
                     {
                         (orderItems[tableIndex][0]!=undefined)
                         ?
-                        <OrderList orderDetails={orderItems[tableIndex]} tableID={tableIndex}/>
+                        <OrderList orderDetails={orderItems[tableIndex]} tableID={tableIndex} deleteOrder={deleteOrder}/>
                         :
                         <div>
                             <Text padding='2'>No tiene ningun item</Text>

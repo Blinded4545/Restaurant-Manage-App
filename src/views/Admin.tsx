@@ -1,11 +1,38 @@
 
-import { Box, Container, Grid, GridItem, Flex, Text } from "@chakra-ui/react"
+import { Box, Container, Grid, GridItem, Flex, Text, Button } from "@chakra-ui/react"
+import { LuMoon, LuSun } from "react-icons/lu"
+import { useState } from "react"
+import {changeHtmlColorScheme  } from '@/components/Functions/ChangeTheme'
 
 export const Admin = () => {
+  
+  const [currIcon, setCurrIcon] = useState('LuMoon')
+
+  const changeColorCurrIcon = ()=>{
+      if(currIcon == 'LuMoon'){
+          setCurrIcon('LuSun')
+          return
+      }
+      setCurrIcon('LuMoon')
+  }
+
   return (
     <Container>
-      <Box h='2rem' alignContent='center'>
-        abc
+      <Box h='2rem' alignContent='center' pt='5px' pb='3rem'>
+        <div onClick={()=>{
+            changeColorCurrIcon()
+            changeHtmlColorScheme()
+        }}>
+            <Button>
+                {
+                    currIcon=="LuMoon"
+                    ?
+                    <LuMoon/>
+                    :
+                    <LuSun/>
+                }
+            </Button>
+        </div>
       </Box>
       <Box p='3'>
         <Grid
@@ -15,7 +42,7 @@ export const Admin = () => {
         gapY='2'
         minHeight='full'
         >
-          <GridItem rowSpan={2} colSpan={1} bg='red.100' rounded='5px'>
+          <GridItem rowSpan={2} colSpan={1} bg={currIcon=='LuMoon'?'#F6B17A':'#F39F5A'} rounded='5px'>
             <Grid h='full' w='full' direction='column' justifyContent='space-evenly' alignItems='center'>
               <Grid templateColumns='repeat(2, 1fr)' alignItems='space-evenly'>
                 <div>Chart 1</div>
@@ -31,13 +58,13 @@ export const Admin = () => {
 
             {/* MENU COMP */}
             <Flex direction='column' width='full' height='full' gap='3'>
-              <Flex width='full' bg='green.100' direction='column' p='3' rounded='5px'>
+              <Flex width='full' bg={currIcon=='LuMoon'?'#7077A1':'#7077A1'} direction='column' p='3' rounded='5px'>
                 <Box>
                   <Text>Menu</Text>
                 </Box>
-                <Box>
+                <Box m='10px' boxShadow='xl' rounded='10px'>
                   <Box>
-                    <Text height='15rem' overflow='scroll'>
+                    <Text height='15rem' overflowY='scroll' pl='3' pt='3'>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
@@ -50,13 +77,13 @@ export const Admin = () => {
               <Flex gap='3' width='full' h='1/2'>
 
                 {/* TABLES COMP */}
-                <Flex width='full' bg='green.100' direction='column' p='3' rounded='5px'>
+                <Flex width='full' bg={currIcon=='LuMoon'?'#7077A1':'#7077A1'} direction='column' p='3' rounded='5px'>
                   <Box>
                     <Text>Tables</Text>
                   </Box>
-                  <Box>
+                  <Box m='10px' boxShadow='xl' rounded='10px'>
                     <Box>
-                      <Text height='10rem' overflow='scroll'>
+                      <Text height='10rem' overflowY='scroll' pl='3' pt='3'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
@@ -67,13 +94,13 @@ export const Admin = () => {
                 </Flex>
                 
                 {/* EMPLOYEES COMP */}
-                <Flex width='full' bg='green.100' direction='column' p='3' rounded='5px'>
+                <Flex width='full' bg={currIcon=='LuMoon'?'#7077A1':'#7077A1'} direction='column' p='3' rounded='5px'>
                   <Box>
                     <Text>Employees</Text>
                   </Box>
-                  <Box>
+                  <Box m='10px' boxShadow='xl' rounded='10px'>
                     <Box>
-                      <Text height='10rem' overflow='scroll'>
+                      <Text height='10rem' overflowY='scroll' pl='3' pt='3'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugit dolor quia autem ab aut quis asperiores recusandae tempora id assumenda corrupti saepe sit exercitationem atque, minima repellendus ducimus cum.
