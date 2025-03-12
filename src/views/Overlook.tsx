@@ -16,7 +16,7 @@ export const Overlook = () => {
 
     const changedColorMode = ()=>{
         if(colorModeTag==''){
-            setColorModeTag('#524C42')
+            setColorModeTag('#7c5c52')
             return
         }
         setColorModeTag('')
@@ -33,7 +33,7 @@ export const Overlook = () => {
     const pruebaReturnResponse = (e: string, i: number, modOp: number):ReactNode=>{
         if ((parseInt(e)%columnOption)==modOp){
             return(
-                <Box bg={colorModeTag} borderWidth="2px" textAlign="center" rounded="10px" p="5px" height='min-content'>
+                <Box bg={colorModeTag} borderWidth="2px" textAlign="center" rounded="10px" p="5px" height='min-content' boxShadow='xl'>
                     {e}
                     <TableOrder key={i} tableIndex={i}></TableOrder>
                 </Box>

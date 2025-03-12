@@ -4,7 +4,7 @@ html{
 }
 
 ::-webkit-scrollbar{
-    width: 10px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track{
@@ -15,4 +15,41 @@ html{
 ::-webkit-scrollbar-thumb{
     background: lightgray;
     border-radius: 10px;
+}
+
+.scrollable{
+    visibility: hidden;
+    overflow-y: auto;
+    transition: --var1 .2s;
+}
+
+.textContent,
+.scrollable:hover,
+.scrollable:focus{
+    visibility: visible;
+}
+
+
+@property --var1 {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: white;
+}
+
+.scrollable:hover {
+    --var1: lightgray;
+}
+
+.scrollable::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+
+.scrollable::-webkit-scrollbar {
+    background: transparent;
+    width: .3rem;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background: var(--var1);
+    border-radius: 4px;
 }
